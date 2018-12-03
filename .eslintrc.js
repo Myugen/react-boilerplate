@@ -54,5 +54,6 @@ module.exports = {
     ], // for nested label htmlFor error
 
     'prettier/prettier': ['error'],
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
   },
 };
