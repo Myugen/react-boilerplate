@@ -17,7 +17,9 @@ class App extends React.Component {
       .then((Foo) => {
         this.setState({ Foo: Foo.default });
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        throw new Error(error);
+      });
   }
 
   onGetKirkBio = async () => {
@@ -31,9 +33,10 @@ class App extends React.Component {
       const character = result.characters[0];
       this.setState({ CaptainKirkBio: character });
     } catch (error) {
-      console.error('error', error);
+      throw new Error(error);
     }
   };
+
   render() {
     const { CaptainKirkBio, Foo } = this.state;
     return (
