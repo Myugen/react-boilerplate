@@ -7,11 +7,17 @@ import "./style/global.scss";
 
 class App extends React.Component {
   state = {
-    CaptainKirkBio: {}
+    CaptainKirkBio: {},
+    Foo: null
   };
 
   componentDidMount() {
     this.onGetKirkBio();
+    import(/* webpackChunkName: 'Foo' */ "./components/Foo/Foo")
+      .then(Foo => {
+        this.setState({ Foo: Foo.default });
+      })
+      .catch(error => console.error(error));
   }
 
   onGetKirkBio = async () => {
@@ -29,7 +35,7 @@ class App extends React.Component {
     }
   };
   render() {
-    const { CaptainKirkBio } = this.state;
+    const { CaptainKirkBio, Foo } = this.state;
     return (
       <div className="app">
         <img
@@ -52,6 +58,7 @@ class App extends React.Component {
             </p>
           )}
         </section>
+        {Foo ? <Foo /> : <p>Foo is loading</p>}
       </div>
     );
   }
