@@ -10,13 +10,9 @@ class App extends React.Component {
 
   componentDidMount() {
     this.onGetKirkBio();
-    import(/* webpackChunkName: 'Foo' */ './components/Foo/Foo')
-      .then((Foo) => {
-        this.setState({ Foo: Foo.default });
-      })
-      .catch((error) => {
-        throw new Error(error);
-      });
+    import(/* webpackChunkName: 'Foo' */ './components/Foo/Foo').then((Foo) => {
+      this.setState({ Foo: Foo.default });
+    });
   }
 
   onGetKirkBio = async () => {
