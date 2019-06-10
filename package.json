@@ -37,7 +37,7 @@
   "author": "Miguel Ignacio Cabrera San Gil",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "express": "^4.16.4",
     "react": "^16.8.5",
     "react-dom": "^16.6.3",
